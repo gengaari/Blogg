@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Blogg.Models.News>
+@{
+    ViewData["Title"] = "Блог";
+}
+
+<h2>Новости</h2>
+
+@foreach (var item in Model)
+{
+    <div class="card mb-2 p-2">
+        <h4>@item.Title</h4>
+        <p>@item.Content</p>
+        <small>@item.Date.ToString("dd.MM.yyyy HH:mm")</small>
+    </div>
+}

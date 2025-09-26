@@ -1,0 +1,25 @@
+﻿@{
+    var theme = Context.Request.Cookies["Theme"] ?? "light";
+}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - Blog</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    @if (theme == "dark")
+    {
+        <link rel="stylesheet" href="~/css/dark.css" />
+    }
+</head>
+<body>
+    <nav>
+        <a asp-controller="Blog" asp-action="Index">Блог</a> |
+        <a asp-controller="Settings" asp-action="Index">Настройки чтения</a>
+    </nav>
+    <hr />
+    <div class="container">
+        @RenderBody()
+    </div>
+</body>
+</html>
